@@ -10,6 +10,9 @@ import Nuke
 class HomeViewController:UIViewController {
     private let collectioniew: UICollectionView={
         let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 2
         let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         return collectionView
     }()
@@ -23,11 +26,7 @@ class HomeViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(collectioniew)
         configureImage()
-        Task {
-            try await loadImage()
-        }
     }
     
     private func loadImage() async throws {
@@ -36,10 +35,18 @@ class HomeViewController:UIViewController {
     }
     
     private func configureImage(){
+        Task {
+            try await loadImage()
+        }
         view.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor,multiplier: 0.5), // makes it square
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
+    }
+    
+    private func confureCollectionView(){
+        view.addSubview(collectioniew)
+
     }
 }
