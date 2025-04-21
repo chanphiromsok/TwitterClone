@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E094726E2DB63C1C0058129E /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = E094726D2DB63C1C0058129E /* Inject */; };
+		E09472712DB63C760058129E /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E09472702DB63C760058129E /* Nuke */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E0F97D162DB63236008F2378 /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E094726E2DB63C1C0058129E /* Inject in Frameworks */,
+				E09472712DB63C760058129E /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = twitter;
 			packageProductDependencies = (
+				E094726D2DB63C1C0058129E /* Inject */,
+				E09472702DB63C760058129E /* Nuke */,
 			);
 			productName = twitter;
 			productReference = E0F97D162DB63236008F2378 /* twitter.app */;
@@ -107,6 +116,10 @@
 			);
 			mainGroup = E0F97D0D2DB63236008F2378;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E094726C2DB63C1C0058129E /* XCRemoteSwiftPackageReference "Inject" */,
+				E094726F2DB63C760058129E /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E0F97D172DB63236008F2378 /* Products */;
 			projectDirPath = "";
@@ -149,7 +162,6 @@
 				INFOPLIST_FILE = twitter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -157,6 +169,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clone.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -176,7 +192,6 @@
 				INFOPLIST_FILE = twitter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -333,6 +348,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E094726C2DB63C1C0058129E /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.2;
+			};
+		};
+		E094726F2DB63C760058129E /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E094726D2DB63C1C0058129E /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E094726C2DB63C1C0058129E /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+		E09472702DB63C760058129E /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E094726F2DB63C760058129E /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0F97D0E2DB63236008F2378 /* Project object */;
 }
