@@ -56,13 +56,15 @@ extension ExploreViewController {
                     widthDimension: .fractionalWidth(0.25),
                     heightDimension: .fractionalWidth(0.25))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 0)
+
                 
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
                     heightDimension: .fractionalWidth(0.25))
                 let group = NSCollectionLayoutGroup.horizontal(
                     layoutSize: groupSize, subitems: [item])
-
+                group.contentInsets.trailing = 5
                 let sectionLayout = NSCollectionLayoutSection(group: group)
                 return sectionLayout
             case .video:
