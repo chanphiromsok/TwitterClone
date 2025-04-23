@@ -12,18 +12,17 @@ class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let homeViewController = UINavigationController(rootViewController: HomeViewController())
+        let exploreViewController = UINavigationController(rootViewController: ExploreViewController())
         let notificationViewController = UINavigationController(rootViewController: NotificationViewController())
-       
-        notificationViewController.tabBarItem.image = UIImage(systemName: "house")
-        notificationViewController.title = "Notification"
         
-        homeViewController.tabBarItem.image = UIImage(systemName: "house")
-        homeViewController.title = "Home"
+        exploreViewController.tabBarItem.image = UIImage(systemName: "heart")
+        exploreViewController.title = "Explore"
+        
+        notificationViewController.tabBarItem.image = UIImage(systemName: "bell")
+        notificationViewController.title = "Notification"
 
         tabBar.tintColor = .label
-        setViewControllers([homeViewController,notificationViewController], animated: false)
-
+        setViewControllers([exploreViewController,notificationViewController], animated: false)
     }
 
 }

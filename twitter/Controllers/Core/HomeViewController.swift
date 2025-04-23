@@ -12,7 +12,7 @@ private enum Section: Hashable {
     case main
 }
 
-private struct ExploreItem : Hashable {
+private struct HomeExploreItem : Hashable {
     private let identifier = UUID()
     let title: String;
     init(title: String) {
@@ -20,8 +20,8 @@ private struct ExploreItem : Hashable {
     }
     
     static let all = [
-        ExploreItem(title: "heelo"),
-        ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"), ExploreItem(title: "heelo"),
+        HomeExploreItem(title: "heelo"),
+        HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"), HomeExploreItem(title: "heelo"),
     ]
 
 }
@@ -29,7 +29,7 @@ class HomeViewController:UIViewController, UICollectionViewDelegate {
     
     
     private var collectionView: UICollectionView! = nil
-    private var dataSource:UICollectionViewDiffableDataSource<Int,ExploreItem>! = nil
+    private var dataSource:UICollectionViewDiffableDataSource<Int,HomeExploreItem>! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,20 +48,20 @@ extension HomeViewController {
         collectionView.delegate = self
     }
     private func configureDataSource(){
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell,ExploreItem> {(cell,indexPath,item) in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell,HomeExploreItem> {(cell,indexPath,item) in
             var contentConfiguration = cell.defaultContentConfiguration()
             // Update text
             contentConfiguration.text = item.title
             // Assing to content
             cell.contentConfiguration = contentConfiguration
         }
-        dataSource = UICollectionViewDiffableDataSource<Int, ExploreItem>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, item: ExploreItem) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Int, HomeExploreItem>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, item: HomeExploreItem) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
-        var snapshot = NSDiffableDataSourceSnapshot<Int, ExploreItem>()
+        var snapshot = NSDiffableDataSourceSnapshot<Int, HomeExploreItem>()
         snapshot.appendSections([1])
-        snapshot.appendItems(ExploreItem.all)
+        snapshot.appendItems(HomeExploreItem.all)
         dataSource.apply(snapshot, animatingDifferences: true)
         
     }
