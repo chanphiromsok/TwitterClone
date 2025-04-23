@@ -1,6 +1,15 @@
 {
-  "originHash" : "b6ecc0082cfb79ea4cbc965e316ac0fcb3627d5821c38fd47690c42d1213e7d3",
+  "originHash" : "ea514fdd29289d26729b8e5f8993d445ad4efb70d46139e5075cf1b01d443477",
   "pins" : [
+    {
+      "identity" : "get",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Get.git",
+      "state" : {
+        "revision" : "31249885da1052872e0ac91a2943f62567c0d96d",
+        "version" : "2.2.1"
+      }
+    },
     {
       "identity" : "inject",
       "kind" : "remoteSourceControl",
@@ -17,6 +26,15 @@
       "state" : {
         "revision" : "0ead44350d2737db384908569c012fe67c421e4d",
         "version" : "12.8.0"
+      }
+    },
+    {
+      "identity" : "pulse",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Pulse.git",
+      "state" : {
+        "revision" : "6125ce7fb51b114ba71b761d18cfd5557923bd4d",
+        "version" : "5.1.4"
       }
     }
   ],

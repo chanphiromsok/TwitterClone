@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02C599C2DB770400069A08D /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = E02C599B2DB770400069A08D /* Get */; };
+		E02C599F2DB771D20069A08D /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = E02C599E2DB771D20069A08D /* Pulse */; };
+		E02C59A12DB771D20069A08D /* PulseProxy in Frameworks */ = {isa = PBXBuildFile; productRef = E02C59A02DB771D20069A08D /* PulseProxy */; };
+		E02C59A32DB771D20069A08D /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = E02C59A22DB771D20069A08D /* PulseUI */; };
 		E094726E2DB63C1C0058129E /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = E094726D2DB63C1C0058129E /* Inject */; };
 		E09472712DB63C760058129E /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E09472702DB63C760058129E /* Nuke */; };
 /* End PBXBuildFile section */
@@ -41,7 +45,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02C59A32DB771D20069A08D /* PulseUI in Frameworks */,
+				E02C599C2DB770400069A08D /* Get in Frameworks */,
+				E02C59A12DB771D20069A08D /* PulseProxy in Frameworks */,
 				E094726E2DB63C1C0058129E /* Inject in Frameworks */,
+				E02C599F2DB771D20069A08D /* Pulse in Frameworks */,
 				E09472712DB63C760058129E /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +95,10 @@
 			packageProductDependencies = (
 				E094726D2DB63C1C0058129E /* Inject */,
 				E09472702DB63C760058129E /* Nuke */,
+				E02C599B2DB770400069A08D /* Get */,
+				E02C599E2DB771D20069A08D /* Pulse */,
+				E02C59A02DB771D20069A08D /* PulseProxy */,
+				E02C59A22DB771D20069A08D /* PulseUI */,
 			);
 			productName = twitter;
 			productReference = E0F97D162DB63236008F2378 /* twitter.app */;
@@ -119,6 +131,8 @@
 			packageReferences = (
 				E094726C2DB63C1C0058129E /* XCRemoteSwiftPackageReference "Inject" */,
 				E094726F2DB63C760058129E /* XCRemoteSwiftPackageReference "Nuke" */,
+				E02C599A2DB770400069A08D /* XCRemoteSwiftPackageReference "Get" */,
+				E02C599D2DB771D20069A08D /* XCRemoteSwiftPackageReference "Pulse" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E0F97D172DB63236008F2378 /* Products */;
@@ -350,6 +364,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E02C599A2DB770400069A08D /* XCRemoteSwiftPackageReference "Get" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Get.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+		E02C599D2DB771D20069A08D /* XCRemoteSwiftPackageReference "Pulse" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Pulse.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.4;
+			};
+		};
 		E094726C2DB63C1C0058129E /* XCRemoteSwiftPackageReference "Inject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
@@ -369,6 +399,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E02C599B2DB770400069A08D /* Get */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02C599A2DB770400069A08D /* XCRemoteSwiftPackageReference "Get" */;
+			productName = Get;
+		};
+		E02C599E2DB771D20069A08D /* Pulse */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02C599D2DB771D20069A08D /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = Pulse;
+		};
+		E02C59A02DB771D20069A08D /* PulseProxy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02C599D2DB771D20069A08D /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = PulseProxy;
+		};
+		E02C59A22DB771D20069A08D /* PulseUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02C599D2DB771D20069A08D /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = PulseUI;
+		};
 		E094726D2DB63C1C0058129E /* Inject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E094726C2DB63C1C0058129E /* XCRemoteSwiftPackageReference "Inject" */;
