@@ -1,13 +1,12 @@
 // ExploreCollectionViewCell.swift
 
 import Nuke
+import NukeUI
 import UIKit
 
 class ExploreCollectionViewCell: UICollectionViewCell {
     static let identifier = "ExploreItemCollectionViewCell"
-    private var imageView: UIImageView! = nil
-    private var imageURL: URL? = nil
-    private var loadingTask: ImageTask? = nil  // Moved this property here
+    private var lazyImageView: LazyImageView! = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,9 +19,7 @@ class ExploreCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        loadingTask?.cancel()
-        loadingTask = nil
-        imageView.image = nil
+        lazyImageView.cancel()
 
     }
 }
@@ -30,35 +27,15 @@ class ExploreCollectionViewCell: UICollectionViewCell {
 // MARK: - Configure Image
 extension ExploreCollectionViewCell {
 
-    public func configure(with imageUrl: String) {
+    public func configure(with imageUrl: String, _ idx: Int) {
         guard let url = URL(string: imageUrl) else {
             print("Invalid URL: \(imageUrl)")
             return
         }
-        // Cancel any previous loading task
-        loadingTask?.cancel()
-        // Create the request
-        let request = ImageRequest(
-            url: url,
-            priority: .normal
-        )
-
-        // Load the image using completion handler
-        loadingTask = ImagePipeline.shared.loadImage(
-            with: request,
-            completion: { [weak self] result in
-                guard let self = self else { return }
-
-                switch result {
-                case .success(let response):
-                    self.imageView.image = response.image
-
-                case .failure(let error):
-                    print("Failed to load image: \(error)")
-
-                }
-            }
-        )
+        //        lazyImageView.placeholderView = UIActivityIndicatorView()
+        lazyImageView.url = url
+        lazyImageView.priority = .normal
+        //        lazyImageView.onCompletion = { _ in print("Request completed \(idx)") }
 
     }
 }
@@ -66,20 +43,19 @@ extension ExploreCollectionViewCell {
 // MARK: - Setup Layout
 extension ExploreCollectionViewCell {
     private func configureHierarchy() {
-        imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        contentView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        lazyImageView = LazyImageView()
+        contentView.addSubview(lazyImageView)
+        lazyImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(
+            lazyImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            lazyImageView.bottomAnchor.constraint(
                 equalTo: contentView.bottomAnchor),
-            imageView.leadingAnchor.constraint(
+            lazyImageView.leadingAnchor.constraint(
                 equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(
+            lazyImageView.trailingAnchor.constraint(
                 equalTo: contentView.trailingAnchor),
         ])
+
     }
 }

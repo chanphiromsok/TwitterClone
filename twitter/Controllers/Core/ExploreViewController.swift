@@ -87,7 +87,7 @@ extension ExploreViewController {
                     "Failed to dequeue ExploreCollectionViewCell in ExploreViewController"
                 )
             }
-            cell.configure(with: item.imageUrl)
+            cell.configure(with: item.imageUrl,indexPath.item)
             return cell
         }
         var snapshot = NSDiffableDataSourceSnapshot<Section, ExploreItem>()

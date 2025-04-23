@@ -13,6 +13,7 @@
 		E02C59A32DB771D20069A08D /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = E02C59A22DB771D20069A08D /* PulseUI */; };
 		E094726E2DB63C1C0058129E /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = E094726D2DB63C1C0058129E /* Inject */; };
 		E09472712DB63C760058129E /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E09472702DB63C760058129E /* Nuke */; };
+		E0B1635D2DB8DF03003B2B4E /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = E0B1635C2DB8DF03003B2B4E /* NukeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E02C59A32DB771D20069A08D /* PulseUI in Frameworks */,
+				E0B1635D2DB8DF03003B2B4E /* NukeUI in Frameworks */,
 				E02C599C2DB770400069A08D /* Get in Frameworks */,
 				E02C59A12DB771D20069A08D /* PulseProxy in Frameworks */,
 				E094726E2DB63C1C0058129E /* Inject in Frameworks */,
@@ -99,6 +101,7 @@
 				E02C599E2DB771D20069A08D /* Pulse */,
 				E02C59A02DB771D20069A08D /* PulseProxy */,
 				E02C59A22DB771D20069A08D /* PulseUI */,
+				E0B1635C2DB8DF03003B2B4E /* NukeUI */,
 			);
 			productName = twitter;
 			productReference = E0F97D162DB63236008F2378 /* twitter.app */;
@@ -432,6 +435,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E094726F2DB63C760058129E /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		E0B1635C2DB8DF03003B2B4E /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E094726F2DB63C760058129E /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
